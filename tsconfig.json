@@ -1,0 +1,14 @@
+{
+    "include": [
+        "./src/*"
+    ],
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "es2016"
+        ],
+        "moduleResolution": "node",
+        "target": "es2016",
+        "jsx": "react"
+    }
+}

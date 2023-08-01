@@ -1,0 +1,7 @@
+.wrapper {
+  --gap: 8px;
+
+  display: flex;
+  padding-right: var(--gap);
+  gap: var(--gap);
+}

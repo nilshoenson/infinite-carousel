@@ -5,14 +5,10 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "@chakra-ui/react": "latest",
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
     "framer-motion": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-scripts": "latest",
-    "scrollex": "2.0.1"
+    "react-scripts": "latest"
   },
   "devDependencies": {
     "@types/react": "latest",

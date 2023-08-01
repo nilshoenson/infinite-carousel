@@ -12,6 +12,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  left: -100%;
   top: 0;
+}
+
+.left {
+  left: -100%;
+}
+
+.right {
+  right: -100%;
 }

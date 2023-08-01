@@ -1,0 +1,6 @@
+.item {
+  cursor: pointer;
+  width: 20vw;
+  height: 200px;
+  object-fit: cover;
+}

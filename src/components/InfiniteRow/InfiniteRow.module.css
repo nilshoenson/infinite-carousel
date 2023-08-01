@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  width: max-content;
+  overflow: hidden;
+}
+
+.inner {
+  width: max-content;
+}
+
+.copy {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: -100%;
+  top: 0;
+}

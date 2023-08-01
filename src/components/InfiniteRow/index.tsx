@@ -6,18 +6,21 @@ import {
   useTransform
 } from "framer-motion"
 
-interface InfiniteBannerProps extends React.HTMLProps<HTMLDivElement> {
+// Styling
+import styles from './InfiniteRow.module.css'
+
+interface InfiniteRowProps extends React.HTMLProps<HTMLDivElement> {
   clock: MotionValue<number>
   loopDuration?: number
   children: React.ReactNode
 }
 
-const InfiniteBanner = ({
+const InfiniteRow = ({
   clock,
   loopDuration = 20000,
   children,
   ...otherProps
-}: InfiniteBannerProps) => {
+}: InfiniteRowProps) => {
   const progress = useTransform(
     clock,
     (time) => (time % loopDuration) / loopDuration
@@ -28,24 +31,11 @@ const InfiniteBanner = ({
   return (
     <div
       {...otherProps}
-      style={{
-        position: "relative",
-        width: "max-content",
-        overflow: "hidden",
-        ...otherProps.style
-      }}
+      className={styles.wrapper}
     >
-      <motion.div style={{ translateX, width: "max-content" }}>
+      <motion.div className={styles.inner} style={{ translateX }}>
         <div>{children}</div>
-        <div
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            left: "-100%",
-            top: 0
-          }}
-        >
+        <div className={styles.copy}>
           {children}
         </div>
       </motion.div>
@@ -53,4 +43,4 @@ const InfiniteBanner = ({
   )
 }
 
-export default InfiniteBanner
+export default InfiniteRow

@@ -1,7 +1,11 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { Center, Flex, Img, Stack } from "@chakra-ui/react"
-import InfiniteBanner from "./InfiniteBanner"
-import { useClock } from "./hooks"
+
+// Components
+import InfiniteRow from "./components/InfiniteRow"
+
+// Hooks
+import { useClock } from './hooks/useClock'
 
 const bannerOneImages = [
   "site-2.png",
@@ -11,9 +15,9 @@ const bannerOneImages = [
   "site-8.png"
 ]
 
-const Photo = ({ src, alt, onClick }) => {
+const Photo = ({ src, alt }) => {
   return (
-    <div onClick={onClick}>
+    <div>
       <Img
         tabIndex={0}
         src={src}
@@ -22,7 +26,6 @@ const Photo = ({ src, alt, onClick }) => {
         w="20vw"
         h="20vh"
         objectFit="cover"
-        border="6px solid white"
       />
     </div>
   )
@@ -31,33 +34,32 @@ const Photo = ({ src, alt, onClick }) => {
 const Banners = () => {
   const clock = useClock()
 
-  React.useEffect(() => {
+  useEffect(() => {
     clock.start()
   }, [clock])
 
   return (
-    <Stack spacing={6}>
-      <InfiniteBanner clock={clock.value}>
-        <Flex gap={6} pr={6}>
-          {bannerOneImages.map((img) => (
-            <Photo
-              key={img}
-              src={img}
-              alt={img}
-              onClick={() => clock.stop()}
-            />
-          ))}
-        </Flex>
-      </InfiniteBanner>
-    </Stack>
+    <Center h="100vh" bg="black">
+      <Stack spacing={6}>
+        <InfiniteRow clock={clock.value}>
+          <Flex gap={6} pr={6}>
+            {bannerOneImages.map((img) => (
+              <Photo
+                key={img}
+                src={img}
+                alt={img}
+              />
+            ))}
+          </Flex>
+        </InfiniteRow>
+      </Stack>
+    </Center>
   )
 }
 
 const App = () => {
   return (
-    <Center h="100vh" bg="black">
-      <Banners />
-    </Center>
+    <Banners />
   )
 }
 
